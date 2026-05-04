@@ -14,8 +14,10 @@ function sendCommandToClient(command) {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     // Determine the host of the current page
     const host = window.location.host;
+	// Determine the path of the current page
+	const path = window.location.pathname;
     // Construct the WebSocket URL
-    const wsUrl = `${protocol}//${host}/text`;
+    const wsUrl = `${protocol}//${host}${path}/text`;
 
     // Create a WebSocket connection to the specified URL
     const autoMuteSocket = new WebSocket(wsUrl);
